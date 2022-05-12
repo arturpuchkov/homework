@@ -35,5 +35,26 @@ public class StoreApi {
 
     }
 
+    public Response findById(String id){
+        return given(spec)
+                .when()
+                .get("/store/order/" + id);
+    }
+
+    public Response deleteById(String id){
+        return given()
+                .baseUri(BASE_URI)
+                .when()
+                .delete("/store/order/" + id);
+    }
+
+    public  Response returnPetByStatus(){
+        return given()
+                .baseUri(BASE_URI)
+                .when()
+                .get("/store/inventory/");
+    }
+
+
 
 }
